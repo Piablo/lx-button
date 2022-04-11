@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _templateObject;
+var _templateObject, _templateObject2;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -69,11 +69,17 @@ var Button = function Button(props) {
   return /*#__PURE__*/_react["default"].createElement(Container, {
     onClick: onClick,
     buttonStyle: buttonStyle
-  }, text);
+  }, /*#__PURE__*/_react["default"].createElement(ButtonContainer, {
+    buttonStyle: buttonStyle
+  }, text));
 };
 
-var Container = _styledComponents["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    background-color: white;\n    height: 50px;\n    border-radius: 15px;\n    box-shadow: ", ";\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: rgba(0,0,0, .5);\n    font-weight: bold;\n    cursor: pointer;\n"])), function (props) {
-  return props.buttonStyle !== 'TEXT_ONLY' ? '0 0 5px rgba(0,0,0, .3)' : null;
+var Container = _styledComponents["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding-top: 2px;\n    padding-bottom: 2px;\n    \n"])));
+
+var ButtonContainer = _styledComponents["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    background-color: #d5d6d8;\n    background-color: ", ";\n    width: calc(100% - 4px);\n    margin: auto;\n    height: 54px;\n    border-radius: 27px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: ", ";\n    font-weight: bold;\n    cursor: pointer;\n"])), function (props) {
+  return props.buttonStyle === 'PRIMARY' ? '#d5d6d8' : 'white';
+}, function (props) {
+  return props.buttonStyle === 'PRIMARY' ? 'white' : 'black';
 });
 
 var _default = Button;

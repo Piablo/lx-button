@@ -30,20 +30,29 @@ const Button = (props) => {
         }
     }
     return(
-        <Container onClick={onClick} buttonStyle={buttonStyle}>{text}</Container>
+        <Container onClick={onClick} buttonStyle={buttonStyle}>
+            <ButtonContainer buttonStyle={buttonStyle}>{text}</ButtonContainer>
+        </Container>
     )
 }
 
 const Container = styled.div`
     width: 100%;
-    background-color: white;
-    height: 50px;
-    border-radius: 15px;
-    box-shadow: ${props => props.buttonStyle !== 'TEXT_ONLY'? '0 0 5px rgba(0,0,0, .3)': null};
+    padding-top: 2px;
+    padding-bottom: 2px;
+    
+`
+const ButtonContainer = styled.div`
+    background-color: #d5d6d8;
+    background-color: ${props => props.buttonStyle === 'PRIMARY'? '#d5d6d8': 'white'};
+    width: calc(100% - 4px);
+    margin: auto;
+    height: 54px;
+    border-radius: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(0,0,0, .5);
+    color: ${props => props.buttonStyle === 'PRIMARY'? 'white': 'black'};
     font-weight: bold;
     cursor: pointer;
 `
